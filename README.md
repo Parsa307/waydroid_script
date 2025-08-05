@@ -30,9 +30,9 @@ cd waydroid_script
 python3 -m venv venv
 venv/bin/pip install -r requirements.txt
 # install something
-sudo venv/bin/python3 main.py install {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg, mitm}
+sudo venv/bin/python3 main.py install {gapps, libndk, libhoudini, nodataperm, smartdock, microg, mitm}
 # uninstall something
-sudo venv/bin/python3 main.py uninstall {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
+sudo venv/bin/python3 main.py uninstall {gapps, libndk, libhoudini, nodataperm, smartdock, microg}
 # get Android device ID
 sudo venv/bin/python3 main.py certified
 # some hacks
@@ -71,19 +71,7 @@ Copy the returned numeric ID, then open ["https://google.com/android/uncertified
 
 ## Install Magisk
 
-![](assets/2.png)
-
-Open terminal and switch to directory where "main.py" is located then run:
-
-    sudo venv/bin/python3 main.py install magisk
-
-Magisk will be installed on next boot! 
-
-Zygisk and modules like LSPosed should work now.
-
-If you want to update Magisk, Please use `Direct Install into system partition` or run this sript again.
-
-This script only focuses on Magisk installation, if you need more management, please check https://github.com/nitanmarcel/waydroid-magisk
+Please use this https://github.com/mistrmochov/WaydroidSU
 
 ## Install libndk arm translation 
 
@@ -109,7 +97,7 @@ Open terminal and switch to directory where "main.py" is located then run:
 
 ## Integrate Widevine DRM (L3)
 
-![](assets/3.png)
+![](assets/2.png)
 
 Open terminal and switch to directory where "main.py" is located then run:
 
@@ -117,8 +105,8 @@ Open terminal and switch to directory where "main.py" is located then run:
 
 ## Install Smart Dock
 
+![](assets/3.png)
 ![](assets/4.png)
-![](assets/5.png)
 
 Open terminal and switch to directory where "main.py" is located then run:
 
@@ -137,7 +125,7 @@ This is a temporary hack to combat against the apps permission issue on Android 
 
 Arknights, PUNISHING: GRAY RAVEN and other games won't freeze on the black screen.
 
-![](assets/6.png)
+![](assets/5.png)
 
 Open terminal and switch to directory where "main.py" is located then run:
 
@@ -163,7 +151,7 @@ chmod 777 -R /mnt/*/*/*/*/Android/obb
 
 ## Install microG, Aurora Store and Aurora Droid
 
-![](assets/7.png)
+![](assets/6.png)
 
 ```
 sudo venv/bin/python3 main.py install microg
@@ -171,10 +159,10 @@ sudo venv/bin/python3 main.py install microg
 
 ## Hide Status Bar
 Before
-![Before](assets/8.png)
+![Before](assets/7.png)
 
 After
-![After](assets/9.png)
+![After](assets/8.png)
 
 ```
 sudo venv/bin/python3 main.py hack hidestatusbar
@@ -190,15 +178,8 @@ Open terminal and switch to directory where "main.py" is located then run:
 
 Star this repository if you find this useful, if you encounter problem create an issue on GitHub!
 
-## Error handling  
-
-- Magisk installed: N/A
-
-Check [waydroid-magisk](https://github.com/nitanmarcel/waydroid-magisk)
-
 ## Credits
 - [WayDroid](https://github.com/waydroid/waydroid)
-- [Magisk Delta](https://huskydg.github.io/magisk-files/)
 - [microG Project](https://microg.org)
 - [Open GApps](https://opengapps.org)
 - [Smart Dock](https://github.com/axel358/smartdock)

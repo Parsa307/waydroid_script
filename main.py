@@ -10,7 +10,6 @@ from stuff.gapps import Gapps
 from stuff.general import General
 from stuff.hidestatusbar import HideStatusBar
 from stuff.houdini import Houdini
-from stuff.magisk import Magisk
 from stuff.microg import MicroG
 from stuff.mitm import Mitm
 from stuff.ndk import Ndk
@@ -77,8 +76,6 @@ def install_app(args):
             install_list.append(Houdini(args.android_version))
         else:
             Logger.warn("libhoudini is not supported on your CPU")
-    if "magisk" in app:
-        install_list.append(Magisk())
     if "widevine" in app:
         install_list.append(Widevine(args.android_version))
     if "smartdock" in app:
@@ -128,8 +125,6 @@ def remove_app(args):
         remove_list.append(Ndk(args.android_version))
     if "libhoudini" in app and "ndk" not in app:
         remove_list.append(Houdini(args.android_version))
-    if "magisk" in app:
-        remove_list.append(Magisk())
     if "widevine" in app:
         remove_list.append(Widevine(args.android_version))
     if "smartdock" in app:
@@ -229,7 +224,7 @@ def interact():
     if not action:
         exit()
 
-    install_choices = ["gapps", "microg", "libndk", "libhoudini", "magisk", "smartdock", "fdroidpriv",]
+    install_choices = ["gapps", "microg", "libndk", "libhoudini", "smartdock", "fdroidpriv",]
     hack_choices = []
     if android_version=="11":
         install_choices.extend(["widevine"])
@@ -281,7 +276,7 @@ def interact():
 
 def main():
     parser = argparse.ArgumentParser(description='''
-    Does stuff like installing Gapps, installing Magisk, installing NDK Translation and getting Android ID for device registration.
+    Does stuff like installing Gapps, installing NDK Translation and getting Android ID for device registration.
     Use -h  flag for help!''')
 
     subparsers = parser.add_subparsers(title="coomand", dest='command')
@@ -297,7 +292,7 @@ def main():
     certified.set_defaults(func=get_certified)
 
     install_choices = ["gapps", "microg", "libndk", "libhoudini",
-                       "magisk", "mitm", "smartdock", "widevine"]
+                       "mitm", "smartdock", "widevine"]
     hack_choices = ["nodataperm", "hidestatusbar"]
     micrg_variants = ["Standard", "NoGoolag", "UNLP", "Minimal", "MinimalIAP"]
     remove_choices = install_choices
@@ -314,7 +309,6 @@ gapps: Install Open GApps (Android 11) or MindTheGapps (Android 13)
 microg: Add microG, Aurora Store and Aurora Droid to WayDriod
 libndk: Add libndk arm translation, better for AMD CPUs
 libhoudini: Add libhoudini arm translation, better for Intel CPUs
-magisk: Install Magisk Delta to WayDroid
 mitm -c CA_CERT_FILE: Install root CA cert into system trust store
 smartdock: A desktop mode launcher for Android
 widevine: Add support for widevine DRM L3
