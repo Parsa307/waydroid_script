@@ -30,6 +30,7 @@ class Smartdock(General):
         <permission name="android.permission.ACCESS_SUPERUSER"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS" />
         <permission name="android.permission.QUERY_ALL_PACKAGES" />
+        <permission name="android.permission.WRITE_SECURE_SETTINGS" />
     </privapp-permissions>
 </permissions>
     """
